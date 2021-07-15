@@ -16,8 +16,8 @@ CMD ["yarn", "start"]
 ## Dockerfile API
 
 ```dockerfile
-FROM node:12 
-EXPOSE 3000
+FROM node:16 
+EXPOSE 5000
 WORKDIR /srv/todo-api
 ADD . /srv/todo-api
 RUN yarn
