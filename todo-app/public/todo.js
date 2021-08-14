@@ -36,7 +36,7 @@ function renderTask(task) {
 }
 
 function createItem(data) {
-  return fetch("http://localhost:5000/tasks", {
+  return fetch("/api/tasks", {
     method: "post",
     body: JSON.stringify(data),
     headers: {
@@ -46,7 +46,7 @@ function createItem(data) {
 }
 
 function fetchItems() {
-  return fetch("http://localhost:5000/tasks").then((res) => res.json());
+  return fetch("/api/tasks").then((res) => res.json());
 }
 
 function renderItems(items) {
@@ -75,13 +75,13 @@ function attachListeners() {
 
     deleteButton.addEventListener("click", () => {
       console.log("hello");
-      fetch(`http://localhost:5000/tasks/${task.dataset.taskId}`, {
+      fetch(`/api/tasks/${task.dataset.taskId}`, {
         method: "DELETE",
       }).then(() => task.remove());
     });
 
     completeButton.addEventListener("click", () => {
-      fetch(`http://localhost:5000/tasks/${task.dataset.taskId}`, {
+      fetch(`/api/tasks/${task.dataset.taskId}`, {
         method: "PATCH",
         body: JSON.stringify({ status: "completed" }),
         headers: {

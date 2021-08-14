@@ -6,15 +6,15 @@ const morgan = require("morgan");
 const requireAll = require("require-dir-all");
 
 app.use(morgan("dev"));
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 
-Object.values(requireAll("./controllers")).forEach(c => app.use(c));
+Object.values(requireAll("./controllers")).forEach((c) => app.use(c));
 
 app.listen(port, () => {
   console.log(`Todo App listening on port ${port}!`);

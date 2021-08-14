@@ -1,8 +1,12 @@
-const { Router } = require('express');
-const homeController = Router();
+const { Router } = require("express");
+const controller = Router();
 
-homeController.get("/", (req, res) => {
-  res.redirect("/tasks");
-})
+const TasksView = require("../views/tasks/index");
 
-module.exports = homeController;
+controller.get("/", (req, res) => {
+  const html = TasksView([]);
+
+  res.send(html);
+});
+
+module.exports = controller;
