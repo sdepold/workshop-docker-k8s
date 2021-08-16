@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      run: web
+  template:
+    metadata:
+      labels:
+        run: web
+    spec:
+      containers:
+        - image: gcr.io/todo-app-322708/todo-app@sha256:991afa9448dacb4af6138a11210460cfa6fef321c312694b5770ef30ff9b53a1
+          imagePullPolicy: IfNotPresent
+          name: web
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+        - image: postgres:latest
+          imagePullPolicy: IfNotPresent
+          name: postgres
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+        - image: gcr.io/todo-app-322708/todo-api@sha256:61974e90a2266aa250b680d4cc5b6657a642988e73bfbd13211dbe75a507e531
+          imagePullPolicy: IfNotPresent
+          name: api
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          env:
+            - name: DATABASE_URL
+              value: "postgres://postgres:postgres@localhost:5432/postgres"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: default
+spec:
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    run: web
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: basic-ingress
+spec:
+  backend:
+    serviceName: web
+    servicePort: 3000
