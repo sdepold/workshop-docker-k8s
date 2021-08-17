@@ -1,130 +1,156 @@
 body {
-    background: #c5e5fb;
-    font-family: 'Roboto', sans-serif;
+  background: radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(
+      45deg,
+      transparent 74px,
+      transparent 75px,
+      #a4a4a4 75px,
+      #a4a4a4 76px,
+      transparent 77px,
+      transparent 109px
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 75px,
+      transparent 76px,
+      #a4a4a4 76px,
+      #a4a4a4 77px,
+      transparent 78px,
+      transparent 109px
+    ),
+    #fff;
+  background-size: 109px 109px, 109px 109px, 100% 6px, 109px 109px, 109px 109px;
+  background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  font-family: "Roboto", sans-serif;
 }
 
 .content {
-    width: 400px;
-    margin: 100px auto;
+  width: 400px;
+  margin: 100px auto;
 }
 
 .list-selector {
-    background: #3665f3;
-    padding: 15px;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  background: hsla(20,100%,50%,.94);
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 .todos {
-    margin-top: 15px;
-    background: white;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-    padding: 40px;
+  margin-top: 15px;
+  background: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  padding: 40px;
 }
 
 .todos ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-.todos ul, .todos li {
-    list-style-type: circle;
+.todos ul,
+.todos li {
+  list-style-type: circle;
 }
 
 .todos li {
-    padding: 0;
+  padding: 0;
 }
 
 .task {
-    color: RGBA(142, 157, 187, 1.00);
-    margin: 10px 0;
-    position: relative;
-    display: block;
+  color: RGBA(142, 157, 187, 1);
+  margin: 10px 0;
+  position: relative;
+  display: block;
 }
 
 .task.completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .task i {
-    display: none;
-    position: absolute;
-    top: 0px;
-    cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0px;
+  cursor: pointer;
 }
 
 .task .title i {
-    display: inline-block;
-    position: relative;
-    font-size: 0.3em;
-    margin-right: 1em;
+  display: inline-block;
+  position: relative;
+  font-size: 0.3em;
+  margin-right: 1em;
 }
 
 .task i.toggle-description {
-    right: 20px;
+  right: 20px;
 }
 
-.task.completed i.toggle-description, .task.completed i.delete-task {
-    display: none;
+.task.completed i.toggle-description,
+.task.completed i.delete-task {
+  display: none;
 }
 
 .task.completed i {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .task i.delete-task {
-    right: 0px;
+  right: 0px;
 }
 
 .task:hover i {
-    display: inline-block;
+  display: inline-block;
 }
 
 .task .description {
-    border: 1px solid RGBA(172, 132, 230, 1.00);
-    padding: 10px;
+  border: 1px solid RGBA(172, 132, 230, 1);
+  padding: 10px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .add-todo {
-    text-align: center;
+  text-align: center;
 }
 
 .add-todo a {
-    background: #3665f3;
-    padding: 10px 20px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 20px;
-    position: relative;
-    top: -9px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  background: hsla(20,100%,50%,.94);
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 20px;
+  position: relative;
+  top: -9px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 form {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
-input, textarea {
-    background: #fafafa;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
-    color: #111820;
-    font-family: inherit;
-    font-size: 0.875rem;
-    padding: 10px;
-    margin: 5px 0;
-    width: 100%;
-    border: none;
+input,
+textarea {
+  background: #fafafa;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  color: #111820;
+  font-family: inherit;
+  font-size: 0.875rem;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  border: none;
 }
 
-input[type=submit] {
-    cursor: pointer;
-    float: right;
-    width: inherit;
+input[type="submit"] {
+  cursor: pointer;
+  float: right;
+  width: inherit;
 }
