@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const controller = Router();
 const fetch = require("node-fetch");
-const API_BASE_PATH = "http://localhost:5000";
+const API_BASE_PATH = process.env.API_BASE_PATH || "http://localhost:5000";
 
 controller.all("/api/:path", handleRequest);
 controller.all("/api/:path/:subPath", handleRequest);
