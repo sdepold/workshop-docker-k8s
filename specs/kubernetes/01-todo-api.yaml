@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo-api
+  labels:
+    app: todo-api
+spec:
+  containers:
+  - name: todo-db
+    image: postgres:latest
+    env:
+      - name: POSTGRES_PASSWORD
+        value: "postgres postgres"
+    ports:
+      - containerPort: 5432
+  - name: todo-api
+    image: todo-api:latest
+    imagePullPolicy: Never
+    env:
+      - name: DATABASE_URL
+        value: "postgres://postgres:postgres@localhost:5432/postgres"
+    ports:
+    - containerPort: 5000
+

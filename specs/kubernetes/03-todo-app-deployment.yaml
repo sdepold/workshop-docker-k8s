@@ -15,5 +15,10 @@ spec:
       containers:
       - name: todo-app
         image: todo-app:latest
+        imagePullPolicy: Never
+        env:
+          - name: API_BASE_PATH
+            value: "http://host.docker.internal:5000"
         ports:
         - containerPort: 3000
+

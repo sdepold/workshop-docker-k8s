@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo-app
+  labels:
+    app: todo-app
+spec:
+  containers:
+  - name: todo-app
+    image: todo-app:latest
+    imagePullPolicy: Never
+    env:
+      - name: API_BASE_PATH
+        value: "http://host.docker.internal:5000"
+    ports:
+    - containerPort: 3000
+
