@@ -14,7 +14,7 @@ spec:
     ports:
       - containerPort: 5432
   - name: todo-api
-    image: todo-api:latest
+    image: todo-api:1.0.0
     imagePullPolicy: Never
     env:
       - name: DATABASE_URL

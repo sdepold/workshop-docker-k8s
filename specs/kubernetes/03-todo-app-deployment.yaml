@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: todo-app
-        image: todo-app:latest
+        image: todo-app:1.0.0
         imagePullPolicy: Never
         env:
           - name: API_BASE_PATH
