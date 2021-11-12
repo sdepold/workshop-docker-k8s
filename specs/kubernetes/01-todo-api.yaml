@@ -15,6 +15,7 @@ spec:
       - containerPort: 5432
   - name: todo-api
     image: todo-api:1.0.0
+    # use locally built Docker images for dev
     imagePullPolicy: Never
     env:
       - name: DATABASE_URL

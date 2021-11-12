@@ -8,6 +8,7 @@ spec:
   containers:
   - name: todo-app
     image: todo-app:1.0.0
+    # use locally built Docker images for dev
     imagePullPolicy: Never
     env:
       - name: API_BASE_PATH
